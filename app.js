@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import http from "http";
 
 import authRoutes from "./routes/AuthRoutes.js";
-import recipesRoutes from "./routes/RecipesRoutes.js";
+import mealRoutes from "./routes/MealRoutes.js";
 
 dotenv.config();
 
@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 app.use("/auth", authRoutes);
-app.use("/recipes", recipesRoutes);
+app.use("/meal", mealRoutes);
 
 // app.listen(PORT, () => {
 //   console.log(`Server listening at port: ${PORT}`);
@@ -35,11 +35,3 @@ mongoose
     server.listen(PORT, () => console.log(`Server running on port: ${PORT}`))
   )
   .catch((error) => console.log(error.message));
-
-// mongoose.connection.on("connected", () => {
-//   console.log("Connected to MongoDB");
-// });
-
-// mongoose.connection.on("error", (err) => {
-//   console.error("Failed to connect to MongoDB:", err);
-// });
